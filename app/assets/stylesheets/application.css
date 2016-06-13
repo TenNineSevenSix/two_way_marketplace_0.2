@@ -1,0 +1,248 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ body {
+   padding-top: 50px;
+   background: url("/assets/background.jpg")
+ }
+ .fa {
+  font-style: normal;
+  font-family: sans-serif;
+  font-size: 2rem;
+}
+
+.btn {
+  color: #fff !important;
+  background: #5A0066 !important;
+}
+
+.index-button {
+  color: #fff !important;
+  background: #5A0066 !important;
+  margin-bottom: 5rem !important;
+  width: 52rem;
+  font-size: 6rem !important;
+}
+
+ body * {
+   color: #5A0066;
+ }
+
+ .form {
+   width: 50%;
+   display: inline-block;
+   left: 25%;
+   position: absolute;
+ }
+
+ nav.navbar.navbar-default {
+     background: rgb(90, 0, 102);
+     color: #fff;
+ }
+ nav.navbar.navbar-default a {
+     color: #fff;
+ }
+ nav.navbar.navbar-default li a {
+     color: #fff;
+ }
+ nav.navbar.navbar-default a:hover {
+     color: #fff;
+ }
+ nav.navbar.navbar-default li a:hover {
+     color: #fff;
+ }
+ .index h1 {
+   text-align: center;
+   margin: 0;
+ }
+ .index h1 img {
+     border: 0;
+     max-width: 40%;
+     margin: 0 !important;
+ }
+ .index h2 {
+     font-size: 8rem;
+     text-align: center;
+     color: #5A0066;
+     margin-bottom: 6rem;
+ }
+ .form-actions.button input {
+   margin: 0.5rem;
+   padding-left: 0.5rem;
+
+ }
+
+ .form-actions.button input:hover {
+     text-decoration: none;
+ }
+
+ a:hover {
+     color: #fff;
+     background: #fff;
+     text-decoration: none !important;
+ }
+
+ .profile img {
+     vertical-align: middle;
+     width: 50%;
+ }
+
+ .slide_show {
+   background: #fff;
+   padding-bottom: 10rem;
+ }
+ .profile h2, h3, p {
+   color: #5A0066;
+ }
+ .profile {
+     display: inline-block;
+     width: 30%;
+     padding-left: 5%;
+     text-align: center;
+ }
+
+ /* Global */
+ body {
+     background: #3399cc;
+     padding: 40px;
+ }
+
+ img { max-width:100%; }
+
+ a {
+ 	-webkit-transition: all 150ms ease;
+ 	-moz-transition: all 150ms ease;
+ 	-ms-transition: all 150ms ease;
+ 	-o-transition: all 150ms ease;
+ 	transition: all 150ms ease;
+ 	}
+     a:hover {
+         -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
+         filter: alpha(opacity=50); /* IE7 */
+         opacity: 0.6;
+         text-decoration: none;
+     }
+
+
+ /* Container */
+ .container-fluid {
+     background: #FFFFFF;
+     max-width: 100%;
+     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+ }
+
+ .active li.span3 {
+   float: left;
+   width: 33%;
+ }
+
+ .active li.span3 .caption {
+   text-align: center;
+   font-size: 1rem;
+ }
+
+ /* Page Header */
+ .page-header {
+     background: #f9f9f9;
+     margin: -30px -40px 40px;
+     padding: 20px 40px;
+     color: #999;
+     text-transform: uppercase;
+     }
+     .page-header h3 {
+         line-height: 0.88rem;
+         color: #000;
+         }
+
+
+
+ /* Thumbnail Box */
+ .caption h4 {
+     font-size: 1rem;
+     color: #444;
+     }
+     .caption p {
+         font-size: 0.75rem;
+         color: #999;
+         }
+         .btn.btn-mini {
+             font-size: 0.63rem;
+             }
+
+
+ /* Carousel Control */
+ .control-box {
+     text-align: right;
+     width: 100%;
+     }
+     .carousel-control{
+         background: #666;
+         border: 0px;
+         border-radius: 0px;
+         display: inline-block;
+         font-size: 34px;
+         font-weight: 200;
+         line-height: 18px;
+         opacity: 0.5;
+         padding: 4px 10px 0px;
+         position: static;
+         height: 30px;
+         width: 15px;
+         }
+
+
+ /* Footer */
+ .footer {
+     margin: auto;
+     width: 100%;
+     max-width: 960px;
+     display: block;
+     font-size: 0.69rem;
+     }
+     .footer, .footer a {
+         color: #ccffcc;
+         }
+         p.right  {
+             float: right;
+             }
+
+
+ /* Mobile Only */
+ @media (max-width: 767px) {
+     .page-header, .control-box {
+     text-align: center;
+     }
+ }
+ @media (max-width: 479px) {
+     .caption {
+     word-break: break-all;
+     }
+ }
+
+ .headshot {
+   text-align: center;
+ }
+
+.carousel li {
+  list-style-type: none;
+}
+.caption p {
+  font-size: 1.5rem;
+  margin: 0 3rem;
+  text-align: center;
+}
+.caption h4 {
+  font-size: 2rem;
+}

@@ -1,0 +1,15 @@
+<tr>
+  <td><%= full_name(tutor_profile) %></td>
+  <% if current_user.has_role? :admin %>
+    <td><%= tutor_profile.dob %></td>
+    <td><%= tutor_profile.street_number %></td>
+    <td><%= tutor_profile.street_address %></td>
+  <% end %>
+  <td><%= self.address(tutor_profile) %></td>
+  <td><%= tutor_profile.categories %></td>
+  <td><%= link_to 'Show', tutor_profile %></td>
+  <% if current_user.has_role? :admin %>
+    <td><%= link_to 'Edit', edit_tutor_profile_path(tutor_profile) %></td>
+    <td><%= link_to 'Destroy', tutor_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</tr>

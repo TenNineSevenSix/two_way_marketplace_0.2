@@ -1,0 +1,12 @@
+<div class='index'>
+  <h1><%= image_tag "/assets/logo.png" %></h1>
+  <% if current_user.nil? %>
+    <h1><%= link_to 'sign up', new_user_session_path, class: 'btn btn-primary btn-lg index-button' %></h1>
+  <% elsif current_user.has_role? :tutor %>
+    <h1><%= link_to 'find my student', student_profiles_path, class: 'btn btn-primary btn-lg index-button' %></h1>
+  <% elsif current_user.has_role? :student %>
+    <h1><%= link_to 'find my tutor', tutor_profiles_path, class: 'btn btn-primary btn-lg index-button' %></h1>
+  <% end %>
+</div>
+
+<%= render 'carousel' %>

@@ -1,0 +1,30 @@
+<div class="container">
+  <nav class="navbar navbar-default" role="navigation">
+      <%= link_to "find my tutor", root_path, :class => 'navbar-brand' %>
+      <ul class="nav navbar-nav pull-right">
+      <% if current_user %>
+
+        <% if unread_messages(current_user.id).nil? || unread_messages(current_user.id).empty? %>
+        <li class='nav-item'><i class="fa fa-envelope-o" style="margin-top: 15px; color: #fff !important" ></i></li>
+        <li class='nav-item'><%= link_to "messages", messages_path, class: 'nav-link' %></li>
+        <% else %>
+        <li class='nav-item'><i class="fa fa-envelope-o" style="margin-top: 15px; color: red !important;" aria-hidden="true"></i></li>
+        <li class='nav-item'><%= link_to "messages", messages_path, class: 'nav-link', style: "color: red !important;" %></li>
+        <% end %>
+
+        <li class='nav-item' >
+        <%= link_to "students", student_profiles_path, class: 'nav-link' if current_user.has_role?(:tutor) %></li>
+        <li class='nav-item'><%= link_to "tutors", tutor_profiles_path, class: 'nav-link' if current_user.has_role?(:student) %></li>
+
+        <li class='nav-item'><%= link_to "my profile", edit_tutor_profile_path(current_user), class: 'nav-link' if current_user.has_role? :tutor %></li>
+        <li class='nav-item'><%= link_to "my profile", edit_student_profile_path(current_user), class: 'nav-link' if current_user.has_role? :student %></li>
+
+        <li class='nav-item'><%= link_to "signout", destroy_user_session_path, :method => 'delete', class: 'nav-link'%></li>
+
+        <% else %>
+
+          <li class='nav-item'><%= link_to "login/sign up", new_user_session_path, class: 'nav-link' %></li>
+        <% end %>
+      </ul>
+  </nav>
+</div>

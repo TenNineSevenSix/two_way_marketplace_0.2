@@ -1,0 +1,72 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+<h1>Inbox</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>Subject</th>
+      <th>Sent</th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @messages.each do |message| %>
+      <% if !message.read %>
+    <tr class="unread_messages" style="background: #ccffcc !important">
+      <td><%= self.get_profile_name(message.sender_id) %></td>
+      <td><%= message.subject %></td>
+      <td><%= message.created_at.strftime('%a %d %b %Y') %></td>
+      <td><%= 'new' %></td>
+
+      <td><%= link_to 'Read', message %></td>
+      <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><strong>Read messages</strong></td>
+    </tr>
+    <% @messages.each do |message| %>
+      <% if message.read %>
+    <tr>
+      <td><%= self.get_profile_name(message.sender_id) %></td>
+      <td><%= message.subject %></td>
+      <td><%= message.created_at.strftime('%a %d %b %Y') %></td>
+      <td></td>
+
+      <td><%= link_to 'Read', message %></td>
+      <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
+<br />
+<br />
+<h1>Outbox</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>To</th>
+      <th>Subject</th>
+      <th>Sent</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @outbox.each do |message| %>
+      <td><%= self.get_profile_name(message.receiver_id) %></td>
+      <td><%= message.subject %></td>
+      <td><%= message.created_at.strftime('%a %d %b %Y') %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+</div>

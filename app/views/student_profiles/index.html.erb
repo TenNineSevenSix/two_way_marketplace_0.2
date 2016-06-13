@@ -1,0 +1,39 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<div class="form" style="position: relative">
+  <form action="/student_profiles" method="get">
+  <div class="input-group">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="submit">Go!</button>
+    </span>
+    <input type="text" class="form-control" name="search" placeholder="Search by subject or suburb...">
+  </div><!-- /input-group -->
+  </form>
+</div>
+
+<h1>Student Profiles</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <% if current_user.has_role? :admin %>
+      <th>Dob</th>
+      <th>Street number</th>
+      <th>Street address</th>
+      <% end %>
+      <th>Address</th>
+      <th>Categories</th>
+      <th>Bio</th>
+      <th colspan="<%= current_user.has_role? :admin ? '3' : '1' %>"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @student_profiles %>
+  </tbody>
+</table>
+
+<br>
+</div>

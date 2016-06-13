@@ -1,0 +1,22 @@
+<div class="container">
+<h1>Task List</h1>
+<p>This is a list of tasks applied to a student by a tutor</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Number</th>
+      <th>Task</th>
+      <th>Completed?</th>
+    </tr>
+    <% count = 1 %>
+    <% @task_list.description.each do |task, done| %>
+    <tr>
+      <td><%= count %></td>
+      <td><%= task %></td>
+      <td><%= done %></td>
+    </tr>
+    <% count += 1 %>
+    <% end %>
+  </thead>
+</table>
+</div>

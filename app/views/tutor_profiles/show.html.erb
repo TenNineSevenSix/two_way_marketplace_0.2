@@ -1,0 +1,68 @@
+<div class="form">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @tutor_profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @tutor_profile.last_name %>
+</p>
+
+<p>
+  <strong>Street number:</strong>
+  <%= @tutor_profile.street_number %>
+</p>
+
+<p>
+  <strong>Street address:</strong>
+  <%= @tutor_profile.street_address %>
+</p>
+
+<p>
+  <strong>Suburb:</strong>
+  <%= @tutor_profile.suburb %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @tutor_profile.state %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @tutor_profile.postcode %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @tutor_profile.country %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @tutor_profile.dob %>
+</p>
+
+<p>
+  <strong>Categories:</strong>
+  <%= @tutor_profile.categories %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @tutor_profile.bio %>
+</p>
+
+<% unless @tutor_profile.user_id == current_user.id %>
+  <%= link_to 'Message', new_message_path(receiver: @tutor_profile.user_id), class: 'btn btn-primary' %>
+<% end %>
+<%= link_to 'Edit', edit_tutor_profile_path(@tutor_profile) if current_user.id == @tutor_profile.user_id %>
+<% if current_user.has_role? :student %>
+  <%= link_to 'Back', tutor_profiles_path %>
+<% else %>
+  <%= link_to 'Back', root_path %>
+<% end %>
+</div>

@@ -1,0 +1,64 @@
+<div class="form">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @student_profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @student_profile.last_name %>
+</p>
+
+<p>
+  <strong>Street number:</strong>
+  <%= @student_profile.street_number %>
+</p>
+
+<p>
+  <strong>Street address:</strong>
+  <%= @student_profile.street_address %>
+</p>
+
+<p>
+  <strong>Suburb:</strong>
+  <%= @student_profile.suburb %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @student_profile.state %>
+</p>
+
+<p>
+  <strong>Postcode:</strong>
+  <%= @student_profile.postcode %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @student_profile.country %>
+</p>
+
+<p>
+  <strong>Dob:</strong>
+  <%= @student_profile.dob %>
+</p>
+
+<p>
+  <strong>Categories:</strong>
+  <%= @student_profile.categories %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @student_profile.bio %>
+</p>
+<% unless @student_profile.user_id == current_user.id %>
+  <%= link_to 'Message', new_message_path(receiver: @student_profile.user_id), class: 'btn btn-success' %>
+<% end %>
+
+<%= link_to 'Edit', edit_student_profile_path(@student_profile) %> |
+<%= link_to 'Back', student_profiles_path %>
+</div>
