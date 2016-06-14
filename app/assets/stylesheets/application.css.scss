@@ -139,11 +139,16 @@ header a.button-main {
   font-size: 2.2em;
   font-weight: 200;
   letter-spacing: 2px;
-  border: outset 1px rgba(43, 62, 95, 0.5);
   border-radius: 10px;
   padding: 24.5px 60px;
   vertical-align: bottom;
   margin: 0 0 30vw 0;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  background-color: #1d6ac8;
+  background-image: -moz-linear-gradient(#45b3f3, #1d6ac8);
+  background-image: -webkit-linear-gradient(#45b3f3, #1d6ac8);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#45b3f3', endColorstr='#1d6ac8')";
+  border-color: #1d6ac8 #1d6ac8 #1a5eb2;
 }
 .search-home {
   display: inline-block;
@@ -235,7 +240,7 @@ main {
   background: linear-gradient(
       rgba(35, 50, 100, 0.95),
       rgba(50, 50, 50, 0.8));
-  padding-top: 20vw;
+  padding-top: 15vw;
 }
 .search-index .search-home {
   padding-bottom: 4vh;
@@ -251,12 +256,13 @@ main {
   letter-spacing: 0.2em;
   margin: 2vw 0 3vw 22vw;
 }
-.search-index {
+main {
   table {
   font-size: 1em;
   font-weight: 100;
   border-collapse: collapse;
   margin: 0 auto;
+  min-width: 80vw;
   }
   th {
     font-weight: 200;

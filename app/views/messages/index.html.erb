@@ -1,8 +1,9 @@
-<div class="container">
+<main>
+<div class="message-index">
 <p id="notice"><%= notice %></p>
 <h1>Inbox</h1>
 
-<table class="table">
+<table>
   <thead>
     <tr>
       <th>From</th>
@@ -16,7 +17,7 @@
   <tbody>
     <% @messages.each do |message| %>
       <% if !message.read %>
-    <tr class="unread_messages" style="background: #ccffcc !important">
+    <tr class="unread_messages" style="background:  rgba(176, 136, 171, 0.2) !important">
       <td><%= self.get_profile_name(message.sender_id) %></td>
       <td><%= message.subject %></td>
       <td><%= message.created_at.strftime('%a %d %b %Y') %></td>
@@ -30,7 +31,7 @@
   </tbody>
   <tbody>
     <tr>
-      <td><strong>Read messages</strong></td>
+      <td colspan="6">Read messages</td>
     </tr>
     <% @messages.each do |message| %>
       <% if message.read %>
@@ -51,7 +52,7 @@
 <br />
 <h1>Outbox</h1>
 
-<table class="table">
+<table>
   <thead>
     <tr>
       <th>To</th>
@@ -70,3 +71,4 @@
   </tbody>
 </table>
 </div>
+</main>

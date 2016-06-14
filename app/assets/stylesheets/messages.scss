@@ -1,3 +1,19 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.message-index {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 10vw;
+}
+.message-index h1 {
+  font-size: 2em;
+  font-weight: 200;
+  letter-spacing: 0.2em;
+  margin: 2vw 0 3vw 22vw;
+}
+
+.message-index {
+  table {
+  }
+}
