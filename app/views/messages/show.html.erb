@@ -1,26 +1,15 @@
 <main>
-<div class="form" id="message">
 <p id="notice"><%= notice %></p>
+<div class="profile" id="message">
 
-<p>
-  <strong>Sender:</strong>
-  <%= self.get_profile_name(@message.sender_id) %>
-</p>
-
-<p>
-  <strong>Subject:</strong>
-  <%= @message.subject %>
-</p>
-
-<p>
-  <strong>Message:</strong>
-  <%= @message.message %>
-</p>
-
+<dl>
+  <dt>Sender</dt>
+  <dd><%= self.get_profile_name(@message.sender_id) %></dd>
+  <dt>Subject</dt>
+  <dd><%= @message.subject %></dd>
+  <dt>Message</dt>
+  <dd><%= @message.message %></dd>
+</dl>
 <%= render 'read', message: @message %>
-
-<br />
-
-<%= link_to 'Back', messages_path %>
 </div>
 </main>
