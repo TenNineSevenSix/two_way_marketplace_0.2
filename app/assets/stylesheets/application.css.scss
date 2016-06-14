@@ -1,0 +1,306 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url("whitespace_reset.css");
+
+body {
+  font: normal 18px "Exo", Helvetica, Arial, sans-serif;
+  width: 100vw;
+  color: #ffffff;
+}
+
+a {
+  transition: color .25s ease;
+  color: #ffffff;
+  text-decoration: none;
+}
+a:hover {
+  color: #45b3f3;
+}
+a:hover + li {
+  border-bottom: 2px solid rgba(174, 42, 176, 0.8);
+}
+
+nav {
+  transition: all 0.5s ease 0.2s;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  margin: 0 auto;
+  padding-top: 3vw;
+}
+
+#logo {
+  transition: all 0.5s ease 0.05s;
+  width: 96px;
+  position: relative;
+  height: auto;
+  left: 35px;
+}
+
+nav ul {
+  float: right;
+  margin-right: 60px;
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: 100;
+  text-align: center;
+}
+nav li {
+  display: inline;
+  margin: 0 20px;
+  padding: 0 20px 8px 20px;
+  border-bottom: 2px solid #ffffff;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-style: groove;
+}
+nav li.active {
+  border-bottom: 2px solid #45b3f3;
+}
+
+nav li.unread {
+  border-bottom: 1px solid #F45B23;
+}
+nav a.unread {
+  color: #F45B23;
+}
+
+nav.past-header {
+    position: fixed;
+    float: top;
+    font-size: .9em;
+    width: 100vw;
+    margin: 0 auto;
+    padding: 3vw 0 0 0;
+    background-color: rgba(35, 50, 100, 0.8);
+    content: '';
+}
+.past-header #logo {
+  width: 76px;
+  top: -2vw;
+}
+
+header {
+  width: 100vw;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(
+      rgba(35, 50, 100, 0.8),
+      rgba(50, 50, 50, 0.3)
+    ), url("background_1.jpg") 0 0 no-repeat;
+  background-size: cover;
+}
+
+header h1 {
+  font-size: 4em;
+  text-align: center;
+  /*margin-top: 30px;*/
+  padding-top: 30vh;
+  padding-bottom: 15vh;
+  letter-spacing: 8px;
+  font-weight: 200;
+}
+.search-home button {
+  font-family: "Exo";
+  font-size: 1.5em;
+  letter-spacing: 3px;
+  border-style: hidden;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 15px 50px 20px 35px;
+  cursor: pointer;
+  /* margin-top: 3vw; */
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #1d6ac8;
+  background-image: -moz-linear-gradient(#45b3f3, #1d6ac8);
+  background-image: -webkit-linear-gradient(#45b3f3, #1d6ac8);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#45b3f3', endColorstr='#1d6ac8')";
+  border-color: #1d6ac8 #1d6ac8 #1a5eb2;
+}
+header a.button-main {
+  display: inline-block;
+  background: linear-gradient(28deg, rgba(43, 62, 95, 1), rgba(200, 200, 200, 0.8), rgba(43, 62, 95, 1));
+  color: #ffffff;
+  font-size: 2.2em;
+  font-weight: 200;
+  letter-spacing: 2px;
+  border: outset 1px rgba(43, 62, 95, 0.5);
+  border-radius: 10px;
+  padding: 24.5px 60px;
+  vertical-align: bottom;
+  margin: 0 0 30vw 0;
+}
+.search-home {
+  display: inline-block;
+  padding-bottom: 38vh;
+  margin: 0 auto;
+}
+.search-home input[type="text"] {
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: 200;
+  letter-spacing: 2px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border-style: hidden;
+  margin: 0;
+  width: 300px;
+  height: 50px;
+}
+
+.user {
+  position: relative;
+  top: 25vh;
+  background: rgba(50, 50, 50, 0.5);
+  color: #ffffff;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.user input {
+  font-size: 0.9em;
+}
+
+.user-signup {
+  font-size: 1em;
+  font-weight: 200;
+  letter-spacing: 2px;
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 20px 0;
+}
+
+.user-signup h2 {
+  font-size: 1.2em;
+  font-weight: 300;
+  margin-bottom: 3vw;
+  text-align: center;
+}
+
+.user-signup input {
+  float: right;
+  height: 20px;
+  margin: 0 0 0 10px;
+  width: 160px;
+  border-radius: 4px;
+}
+
+.user-signup .user-button {
+  display: inline-block;
+  color: #ffffff;
+  font-size: 1em;
+  font-weight: 100;
+  letter-spacing: 1px;
+  border-style: hidden;
+  border-radius: 10px;
+  padding: 4px 8px 28px 10px;
+  cursor: pointer;
+  margin-top: 3vw;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  background-color: #1d6ac8;
+  background-image: -moz-linear-gradient(#45b3f3, #1d6ac8);
+  background-image: -webkit-linear-gradient(#45b3f3, #1d6ac8);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#45b3f3', endColorstr='#1d6ac8')";
+  border-color: #1d6ac8 #1d6ac8 #1a5eb2;
+}
+
+.user-signup span {
+  display: block;
+  clear: both;
+  padding-top: 30px;
+}
+.buffer-links {
+  display: inline-block;
+  margin: 1.5vw;
+}
+main {
+  background: linear-gradient(
+      rgba(35, 50, 100, 0.95),
+      rgba(50, 50, 50, 0.8));
+  padding-top: 20vw;
+}
+.search-index .search-home {
+  padding-bottom: 4vh;
+  margin-left: 15vw;
+}
+.search-index {
+  width: 80%;
+  margin: 0 auto;
+}
+.search-index h1 {
+  font-size: 2em;
+  font-weight: 200;
+  letter-spacing: 0.2em;
+  margin: 2vw 0 3vw 22vw;
+}
+.search-index {
+  table {
+  font-size: 1em;
+  font-weight: 100;
+  border-collapse: collapse;
+  margin: 0 auto;
+  }
+  th {
+    font-weight: 200;
+    text-align: left;
+    padding: 5px 15px 15px 5px;
+    border-bottom: solid 2px #fff;
+
+  }
+  tr:nth-child(even) {
+    background-color: rgba(100, 100, 100, 0.2);
+  }
+  td {
+    padding: 15px 6vw 15px 5px;
+  }
+  tr:first-child td {
+    padding: 25px 6vw 15px 5px;
+  }
+}
+
+footer {
+  background: #262626;
+  color: #fff;
+  height: 100px;
+
+}
+footer p {
+  width: 70%;
+  margin: 0 auto;
+  font-size: 0.8em;
+  font-weight: 100;
+  padding: 20px;
+}
+
+@media (max-width: 900px) {
+
+}
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2em;
+    text-align: center;
+    /*margin-top: 30px;*/
+    padding-top: 30vh;
+    padding-bottom: 5vh;
+    letter-spacing: 2px;
+    font-weight: 200;
+  }
+}

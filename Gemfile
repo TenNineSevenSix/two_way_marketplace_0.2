@@ -12,12 +12,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'simple_form'
 gem 'cancancan', '~> 1.10'
-gem 'bootstrap'
 gem 'rolify'
 gem 'pry-rails'
 gem 'cloudinary'
 gem 'carrierwave'
-gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -1,3 +1,79 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+article {
+  background: linear-gradient(
+      rgba(35, 50, 100, 0.95),
+      rgba(50, 50, 50, 0.8));
+}
+article h2 {
+  font-size: 2em;
+  text-align: center;
+  padding-top: 12vh;
+  letter-spacing: 8px;
+  font-weight: 200;
+  padding-bottom: 6vh;
+}
+article p {
+  font-size: 1em;
+  font-weight: 100;
+  letter-spacing: 0.1vw;
+  width: 70%;
+  margin: 0 auto;
+  padding-bottom: 3vh;
+}
+.headshots {
+  padding: 6vw 0;
+  width: 80%;
+  margin: 0 auto;
+}
+.headshots ul {
+  display: inline-flex;
+}
+.headshots li {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.headshots h3 {
+  font-size: 1.2em;
+  font-weight: 400;
+  padding: 10px;
+}
+.headshots img {
+  height: 256px;
+  background-position: top;
+  border-radius: 50%;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+input:checked + .tutor_view {
+  display: inline-block;
+}
+.tutor_view {
+  display: none;
+}
+.tutor_view {
+  position: fixed;
+  background: rgba(50, 50, 50, 1);
+  color: #fff;
+  width: 70%;
+  left: 15%;
+  top: 20%;
+  padding: 3vw 0;
+  z-index: 2;
+  border-radius: 10px;
+}
+
+.tutor_view::before {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: "";
+  background: rgba(0, 0, 0, .2);
+}

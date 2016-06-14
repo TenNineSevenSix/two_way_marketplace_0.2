@@ -1,14 +1,11 @@
-<div class="container">
+<main>
+<div class="search-index">
 <p id="notice"><%= notice %></p>
 
-  <div class="form" style="position: relative">
+  <div class="search-home">
     <form action="/tutor_profiles" method="get">
-    <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="submit">Go!</button>
-      </span>
-      <input type="text" class="form-control" name="search" placeholder="Search by subject or suburb...">
-    </div><!-- /input-group -->
+      <input type="text" class="form-control" name="search" placeholder="enter subject or suburb...">
+      <button type="submit">search</button>
     </form>
   </div>
 
@@ -36,3 +33,4 @@
 
 <br>
 </div>
+</main>

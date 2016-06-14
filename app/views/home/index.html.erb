@@ -1,12 +1,70 @@
-<div class='index'>
-  <h1><%= image_tag "/assets/logo.png" %></h1>
+<header>
+  <h1>Find my tutor</h1>
   <% if current_user.nil? %>
-    <h1><%= link_to 'sign up', new_user_session_path, class: 'btn btn-primary btn-lg index-button' %></h1>
+    <%= link_to 'sign up', new_user_session_path, class: 'button-main' %>
   <% elsif current_user.has_role? :tutor %>
-    <h1><%= link_to 'find my student', student_profiles_path, class: 'btn btn-primary btn-lg index-button' %></h1>
-  <% elsif current_user.has_role? :student %>
-    <h1><%= link_to 'find my tutor', tutor_profiles_path, class: 'btn btn-primary btn-lg index-button' %></h1>
-  <% end %>
-</div>
+    <%= link_to 'find a student', student_profiles_path, class: 'button-main' %>
 
-<%= render 'carousel' %>
+  <% elsif current_user.has_role? :student %>
+    <div class="search-home">
+      <form action="/tutor_profiles" method="get">
+        <input type="text" class="form-control" name="search" placeholder="enter subject or suburb...">
+        <button type="submit">search</button>
+      </form>
+    </div>
+  <% end %>
+</header>
+<article>
+  <h2>About find my tutor</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <div class="headshots">
+  <ul>
+    <li>
+      <label>
+        <input type="checkbox" />
+        <div class="tutor_view">
+          <%= image_tag "headshot01.jpg" %>
+          <h3>Lorem Ipsum</h3>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+      <figure>
+        <%= image_tag "headshot01.jpg" %>
+      </figure>
+      <h3>Lorem Ipsum</h3>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox"/>
+        <div class="tutor_view">
+          <%= image_tag "headshot02.jpg" %>
+          <h3>Lorem Ipsum</h3>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+      <figure>
+        <%= image_tag "headshot02.jpg" %>
+      </figure>
+      <h3>Lorem Ipsum</h3>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+    </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox"/>
+        <div class="tutor_view">
+          <%= image_tag "headshot03.jpg" %>
+          <h3>Lorem Ipsum</h3>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+      <figure>
+        <%= image_tag "headshot03.jpg" %>
+      </figure>
+      <h3>Lorem Ipsum</h3>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    </label>
+    </li>
+  </ul>
+  </div>
+</article>

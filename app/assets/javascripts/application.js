@@ -14,3 +14,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var mainbottom = $('header').height();
+
+// on scroll,
+$(window).on('scroll',function(){
+
+    // we round here to reduce a little workload
+    var stop = Math.round($(window).scrollTop());
+
+    if (stop > mainbottom) {
+        $('nav').addClass('past-header');
+    } else {
+        $('nav').removeClass('past-header');
+    }
+
+});
