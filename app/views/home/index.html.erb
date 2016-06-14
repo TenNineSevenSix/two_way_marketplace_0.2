@@ -1,11 +1,18 @@
 <header>
-  <h1>Find my tutor</h1>
+
   <% if current_user.nil? %>
+    <h1>Find my tutor</h1>
     <%= link_to 'sign up', new_user_session_path, class: 'button-main' %>
   <% elsif current_user.has_role? :tutor %>
-    <%= link_to 'find a student', student_profiles_path, class: 'button-main' %>
-
+    <h1>Find my student</h1>
+    <div class="search-home">
+      <form action="/student_profiles" method="get">
+        <input type="text" class="form-control" name="search" placeholder="enter subject or suburb...">
+        <button type="submit">search</button>
+      </form>
+    </div>
   <% elsif current_user.has_role? :student %>
+    <h1>Find my tutor</h1>
     <div class="search-home">
       <form action="/tutor_profiles" method="get">
         <input type="text" class="form-control" name="search" placeholder="enter subject or suburb...">

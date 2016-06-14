@@ -1,66 +1,27 @@
 <main>
-<div class="form">
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
+  <div class="profile">
+    <dl>
+      <dt>Name</dt>
+      <dd><%= @student_profile.first_name %> <%= @student_profile.last_name %></dd>
 
-<p>
-  <strong>First name:</strong>
-  <%= @student_profile.first_name %>
-</p>
+      <dt>Address</dt>
+      <dd><%= @student_profile.suburb %> <%= @student_profile.state %> <%= @student_profile.postcode %> <%= @student_profile.country %></dd>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @student_profile.last_name %>
-</p>
+      <dt>Categories</dt>
+      <dd><%= @student_profile.categories %></dd>
 
-<p>
-  <strong>Street number:</strong>
-  <%= @student_profile.street_number %>
-</p>
+      <dt>About <%= @student_profile.first_name %></dt>
+      <dd><%= @student_profile.bio %></dd>
+    </dl>
 
-<p>
-  <strong>Street address:</strong>
-  <%= @student_profile.street_address %>
-</p>
-
-<p>
-  <strong>Suburb:</strong>
-  <%= @student_profile.suburb %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @student_profile.state %>
-</p>
-
-<p>
-  <strong>Postcode:</strong>
-  <%= @student_profile.postcode %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @student_profile.country %>
-</p>
-
-<p>
-  <strong>Dob:</strong>
-  <%= @student_profile.dob %>
-</p>
-
-<p>
-  <strong>Categories:</strong>
-  <%= @student_profile.categories %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @student_profile.bio %>
-</p>
-<% unless @student_profile.user_id == current_user.id %>
-  <%= link_to 'Message', new_message_path(receiver: @student_profile.user_id), class: 'btn btn-success' %>
+<% if current_user.has_role? :admin %>
+  <%= link_to 'Edit', edit_student_profile_path(@student_profile) %> |
 <% end %>
-
-<%= link_to 'Edit', edit_student_profile_path(@student_profile) %> |
 <%= link_to 'Back', student_profiles_path %>
+
+<% unless @student_profile.user_id == current_user.id %>
+  <span><%= link_to 'Message', new_message_path(receiver: @student_profile.user_id), class: 'message' %></span>
+<% end %>
 </div>
 </main>
