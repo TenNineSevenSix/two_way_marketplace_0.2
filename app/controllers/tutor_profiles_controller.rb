@@ -76,6 +76,6 @@ class TutorProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tutor_profile_params
-      params.require(:tutor_profile).permit(:first_name, :last_name, :street_number, :street_address, :suburb, :state, :postcode, :country, :dob, :categories, :bio)
+      params.require(:tutor_profile).permit(:first_name, :last_name, :street_number, :street_address, :suburb, :state, :postcode, :country, :dob, :categories, :bio, :profile_image)
     end
 end
