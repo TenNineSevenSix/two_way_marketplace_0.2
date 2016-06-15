@@ -1,6 +1,9 @@
 <main>
   <p id="notice"><%= notice %></p>
   <div class="profile">
+    <figure>
+    <%= image_tag @tutor_profile.profile_image %>
+    </figure>
     <dl>
       <dt>Name</dt>
       <dd><%= @tutor_profile.first_name %> <%= @tutor_profile.last_name %></dd>

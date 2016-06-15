@@ -16,6 +16,7 @@ gem 'rolify'
 gem 'pry-rails'
 gem 'cloudinary'
 gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platform: :mri

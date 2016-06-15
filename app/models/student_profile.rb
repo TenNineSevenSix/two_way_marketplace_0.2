@@ -1,6 +1,6 @@
 class StudentProfile < ApplicationRecord
-  belongs_to :user
   mount_uploader :profile_image, ProfileImageUploader
+  belongs_to :user
 
   def self.search(search)
     if search

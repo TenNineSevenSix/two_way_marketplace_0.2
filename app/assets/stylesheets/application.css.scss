@@ -274,6 +274,17 @@ main {
     text-align: center;
     padding: 1vw 0;
   }
+  .trash {
+    display: inline-block;
+    height: 42px;
+    width: 34px;
+    background-image: url("trash-sprite2sml.png");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+  .trash:hover {
+    background-position: right;
+  }
 }
 
 .profile {
@@ -339,6 +350,15 @@ main {
     }
     span {
       float: right;
+    }
+    figure {
+      display: table;
+      margin: 0 auto;
+      img {
+        height: 256px;
+        background-position: top;
+        border-radius: 50%;
+      }
     }
 }
 
