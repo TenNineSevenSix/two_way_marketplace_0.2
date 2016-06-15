@@ -18,13 +18,45 @@
       <dd><%= @student_profile.bio %></dd>
     </dl>
 
-<% if current_user.has_role? :admin %>
-  <%= link_to 'Edit', edit_student_profile_path(@student_profile) %> |
-<% end %>
-<%= link_to 'Back', student_profiles_path %>
+    <% if current_user.has_role? :admin %>
+      <%= link_to 'Edit', edit_student_profile_path(@student_profile) %> |
+    <% end %>
+    <%= link_to 'Back', student_profiles_path %>
 
-<% unless @student_profile.user_id == current_user.id %>
-  <span><%= link_to 'Message', new_message_path(receiver: @student_profile.user_id), class: 'message' %></span>
-<% end %>
+    <% unless @student_profile.user_id == current_user.id %>
+      <span><%= link_to 'Message', new_message_path(receiver: @student_profile.user_id), class: 'message' %></span>
+    <% end %>
+
+    <dl class="map">
+      <dt>Where is <%= @student_profile.first_name %>?</dt>
+      <dd><div id="map"></div></dd>
+    </dl>
 </div>
 </main>
+<script>
+var geocoder;
+var map;
+function codeAddress() {
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(-34.397, 150.644);
+  var mapOptions = {
+    zoom: 14,
+    center: latlng
+  };
+  map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  var address = "<%= address(@student_profile) %>";
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+    } else {
+      alert("Geocode was not successful for the following reason: " + status);
+    }
+  });
+};
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxUfgP-LgiJbA96ELCiOycOTYJlac9wAo&callback=codeAddress"
+async defer></script>

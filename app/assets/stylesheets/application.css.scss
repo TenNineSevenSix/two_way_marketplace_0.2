@@ -360,6 +360,21 @@ main {
         border-radius: 50%;
       }
     }
+    .map {
+      dt {
+        padding: 2.5vw 0 1vw 0;
+        border-bottom: 1px solid #fff;
+      }
+      dd {
+        font-weight: 100;
+        padding: 1vw 0 1vw 0;
+      }
+    }
+    #map {
+      height: 30vw;
+      width: 100%;
+      display: inline-block;
+    }
 }
 
 footer {
