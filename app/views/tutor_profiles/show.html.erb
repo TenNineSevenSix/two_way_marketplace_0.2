@@ -1,6 +1,14 @@
 <main>
   <p id="notice"><%= notice %></p>
   <div class="profile">
+    <% connection = relationship_connection(@tutor_profile.id) %>
+
+    <% if connection == 'pending' %>
+      <h3>Connection requested...</h3>
+    <% elsif connection == 'connected' %>
+      <h3>You are connected with <%= @tutor_profile.first_name %></h3>
+    <% end %>
+
     <% if @tutor_profile.profile_image.file.nil? %>
       <p>No profile image provided</p>
     <% else %>
@@ -29,6 +37,10 @@
 
     <% unless @tutor_profile.user_id == current_user.id %>
       <span><%= link_to 'Message', new_message_path(receiver: @tutor_profile.user_id), class: 'message' %></span>
+    <% end %>
+
+    <% if connection == 'unconnected' %>
+      <span><%= link_to 'Request connection', new_relationship_path(id: @tutor_profile.id), class: 'message' %></span>
     <% end %>
 
     <dl class="map">

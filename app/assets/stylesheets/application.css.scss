@@ -305,6 +305,12 @@ main {
       width: 90%;
       margin: 2vw 12px;
     }
+    h3 {
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: 100;
+      margin-bottom: 2vw;
+    }
     input#tutor_profile_dob {
       padding: 3px;
       font-family: "Exo";
@@ -338,6 +344,7 @@ main {
       color: #ffffff;
       font-size: 20px;
       padding: 10px 20px 10px 20px;
+      margin-left: 2vw;
       text-decoration: none;
     }
     .message:hover {

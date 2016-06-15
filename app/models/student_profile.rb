@@ -6,7 +6,7 @@ class StudentProfile < ApplicationRecord
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['categories LIKE ?', "%#{search}%"])
+      find(:all, :conditions => ['categories ILIKE ?', "%#{search}%"])
     else
       find(:all)
     end
