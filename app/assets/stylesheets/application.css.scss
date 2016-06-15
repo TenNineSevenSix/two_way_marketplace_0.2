@@ -103,24 +103,7 @@ header h1 {
   letter-spacing: 8px;
   font-weight: 200;
 }
-.search-home button {
-  font-family: "Exo";
-  font-size: 1.5em;
-  letter-spacing: 3px;
-  border-style: hidden;
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
-  padding: 15px 50px 20px 35px;
-  cursor: pointer;
-  /* margin-top: 3vw; */
-  color: #fff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #1d6ac8;
-  background-image: -moz-linear-gradient(#45b3f3, #1d6ac8);
-  background-image: -webkit-linear-gradient(#45b3f3, #1d6ac8);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#45b3f3', endColorstr='#1d6ac8')";
-  border-color: #1d6ac8 #1d6ac8 #1a5eb2;
-}
+
 header a.button-main {
   display: inline-block;
   background: linear-gradient(28deg, rgba(43, 62, 95, 1), rgba(200, 200, 200, 0.8), rgba(43, 62, 95, 1));
@@ -133,6 +116,24 @@ header a.button-main {
   vertical-align: bottom;
   margin: 0 0 30vw 0;
   text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  background-color: #1d6ac8;
+  background-image: -moz-linear-gradient(#45b3f3, #1d6ac8);
+  background-image: -webkit-linear-gradient(#45b3f3, #1d6ac8);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#45b3f3', endColorstr='#1d6ac8')";
+  border-color: #1d6ac8 #1d6ac8 #1a5eb2;
+}
+.search-home button {
+  font-family: "Exo";
+  font-size: 1.5em;
+  letter-spacing: 3px;
+  border-style: hidden;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 15px 50px 20px 35px;
+  cursor: pointer;
+  /* margin-top: 3vw; */
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #1d6ac8;
   background-image: -moz-linear-gradient(#45b3f3, #1d6ac8);
   background-image: -webkit-linear-gradient(#45b3f3, #1d6ac8);
@@ -408,6 +409,21 @@ footer p {
   .message-index {
     margin: 0 6vw;
   }
+
+  .search-index {
+    h1 {
+      margin: 1vw 0 3vw 16vw;
+    }
+    .search-home {
+      margin-left: 10vw;
+      button {
+        padding: 8px 30px 14px 24px;
+      }
+      input[type="text"] {
+        padding: 4px 14px;
+      }
+    }
+  }
 }
 @media (max-width: 768px) {
   header h1 {
@@ -418,5 +434,24 @@ footer p {
     padding-bottom: 5vh;
     letter-spacing: 2px;
     font-weight: 200;
+  }
+  .search-index {
+    h1 {
+      margin: 1vw 0 3vw 12vw;
+    }
+    .search-home {
+      margin-left: 8vw;
+      button {
+        font-size: 1.2em;
+        padding: 8px 16px 10px 16px;
+      }
+      input[type="text"] {
+        padding: 2px 6px;
+        font-size: 0.9em;
+        letter-spacing: 1px;
+        width: 266px;
+        height: 43px;
+      }
+    }
   }
 }
