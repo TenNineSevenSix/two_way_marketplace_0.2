@@ -25,3 +25,11 @@ test:
   pool: 5
   username:
   password:
+
+deployment:
+  adapter: postgresql
+  encoding: unicode
+  database: f3_deployment
+  pool: 5
+  username:
+  password:
