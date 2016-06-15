@@ -1,9 +1,13 @@
 <main>
   <p id="notice"><%= notice %></p>
   <div class="profile">
-    <figure>
-    <%= image_tag @student_profile.profile_image %>
-    </figure>
+    <% unless @student_profile.profile_image.nil? %>
+      <figure>
+      <%= image_tag @student_profile.profile_image %>
+      </figure>
+    <% else %>
+      <p>No profile image provided</p>
+    <% end %>
     <dl>
       <dt>Name</dt>
       <dd><%= @student_profile.first_name %> <%= @student_profile.last_name %></dd>

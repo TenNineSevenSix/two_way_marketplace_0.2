@@ -11,7 +11,8 @@
         <%= f.input :suburb, input_html: { class: "profile-inputs"} %>
         <%= f.input :state, input_html: { class: "profile-inputs"} %>
         <%= f.input :postcode, input_html: { class: "profile-inputs"} %>
-        <%= f.input :dob, input_html: { class: "profile-inputs-dob"} %>
+        <%= f.label :dob, "Date of birth" %>
+        <%= f.date_field :dob, start_year: Date.today.year - 90, end_year: Date.today.year - 12, discard_day: true, order: [:month, :year] %>
         <%= f.input :categories, input_html: { class: "profile-inputs"} %>
         <%= f.input :bio, input_html: { class: "profile-inputs"} %>
       </div>
