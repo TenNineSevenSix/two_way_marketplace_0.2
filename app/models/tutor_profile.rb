@@ -1,5 +1,7 @@
 class TutorProfile < ApplicationRecord
   belongs_to :user
+  has_many :relationships
+  has_many :student_profiles, through: :relationships
   mount_uploader :profile_image, ProfileImageUploader
 
   # def get_profile(id)

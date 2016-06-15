@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'home/search'
   resources :student_profiles
   resources :tutor_profiles
+  resources :relationships
   devise_for :users, controllers: {
         sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords', shared: 'users/shared'
       }

@@ -26,7 +26,7 @@
       <%= link_to 'Edit', edit_student_profile_path(@student_profile) %> |
     <% end %>
     <%= link_to 'Back', student_profiles_path %>
-
+    <%= link_to 'Request connection', new_relationship_path(id: @student_profile.id) %>
     <% unless @student_profile.user_id == current_user.id %>
       <span><%= link_to 'Message', new_message_path(receiver: @student_profile.user_id), class: 'message' %></span>
     <% end %>
@@ -35,7 +35,7 @@
       <dt>Where is <%= @student_profile.first_name %>?</dt>
       <dd><div id="map"></div></dd>
     </dl>
-</div>
+  </div>
 </main>
 <script>
 var geocoder;

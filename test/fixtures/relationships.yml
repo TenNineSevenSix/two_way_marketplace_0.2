@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tutor_profile_id: 1
+  student_profile_id: 1
+  tutor_approved: false
+  student_approved: false
+
+two:
+  tutor_profile_id: 1
+  student_profile_id: 1
+  tutor_approved: false
+  student_approved: false
