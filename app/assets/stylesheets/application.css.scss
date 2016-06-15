@@ -74,14 +74,14 @@ nav.past-header {
     width: 100vw;
     margin: 0 auto;
     padding: 3vw 0 0 0;
-    background-color: rgba(35, 50, 100, 0.8);
+    background-color: rgba(35, 50, 100, 0.9);
     content: '';
+    z-index: 2;
     img {
       width: 76px;
       top: -2vw;
     }
 }
-
 
 header {
   width: 100vw;
