@@ -3,14 +3,23 @@
     <div class="profile">
       <dl class="connections-index">
         <dt>
-          Your connections
+          <% if current_user.has_role? :tutor %>
+            Your students
+          <% else %>
+            Your tutors
+          <% end %>
         </dt>
         <dd>
         <% @my_connections.each do |profile| %>
           <% if relationship_connection(profile.id) == 'connected' %>
             <%= image_tag profile.profile_image %>
+            <div class="connections-text">
             <h4><%= link_to "#{profile.first_name} #{profile.last_name}", profile %></h4>
             <p><%= profile.categories %></p>
+            </div>
+            <div class="button">
+            <%= link_to "Homework", { controller: 'homeworks', action: 'index', student_profile_id: profile.id }, class: 'message' %>
+            </div>
           <% end %>
         <% end %>
         </dd>

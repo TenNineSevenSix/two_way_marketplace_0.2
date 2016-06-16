@@ -1,0 +1,23 @@
+<main>
+  <div class="profile">
+    <div id="set-homework">
+      <h3>Set <%= @student_profile.first_name %> a homework task</h3>
+      <%= simple_form_for(@homework) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :student_profile_id, as: :hidden, input_html: { value: params[:student_profile_id] } %>
+
+          <%= f.input_field :question, as: :text, input_html: { class: "profile-inputs" } %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: 'message' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <% @homeworks.each do |homework| %>
+    <%= homework.question %>
+  <% end %>
+</main>

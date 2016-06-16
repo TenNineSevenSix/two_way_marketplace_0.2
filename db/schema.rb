@@ -11,11 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615101022) do
+ActiveRecord::Schema.define(version: 20160616105441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "homeworks", force: :cascade do |t|
+    t.string   "question"
+    t.string   "answer"
+    t.boolean  "completed"
+    t.integer  "result"
+    t.string   "tutor_comments"
+    t.integer  "tutor_profile_id"
+    t.integer  "student_profile_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["student_profile_id"], name: "index_homeworks_on_student_profile_id", using: :btree
+    t.index ["tutor_profile_id"], name: "index_homeworks_on_tutor_profile_id", using: :btree
+  end
 
   create_table "messages", force: :cascade do |t|
     t.integer  "receiver_id"
@@ -115,6 +129,8 @@ ActiveRecord::Schema.define(version: 20160615101022) do
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
   end
 
+  add_foreign_key "homeworks", "student_profiles"
+  add_foreign_key "homeworks", "tutor_profiles"
   add_foreign_key "student_profiles", "users"
   add_foreign_key "tutor_profiles", "users"
 end

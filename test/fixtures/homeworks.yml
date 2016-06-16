@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: MyString
+  answer: MyString
+  completed: false
+  result: 1
+  tutor_comments: MyString
+  tutor_profile: one
+  student_profile: one
+
+two:
+  question: MyString
+  answer: MyString
+  completed: false
+  result: 1
+  tutor_comments: MyString
+  tutor_profile: two
+  student_profile: two
