@@ -2,11 +2,18 @@ module MessagesHelper
 
   def get_profile_name(id)
     if current_user.has_role? :tutor
-      @student_profile = StudentProfile.find_by(user_id: id)
-      "#{@student_profile.first_name} #{@student_profile.last_name}"
+      @profile = StudentProfile.find_by(user_id: id)
     else
-      @tutor_profile = TutorProfile.find_by(user_id: id)
-      "#{@tutor_profile.first_name} #{@tutor_profile.last_name}"
+      @profile = TutorProfile.find_by(user_id: id)
+    end
+    "#{@profile.first_name} #{@profile.last_name}"
+  end
+
+  def get_profile(id)
+    if current_user.has_role? :tutor
+      @profile = StudentProfile.find_by(user_id: id)
+    else
+      @profile = TutorProfile.find_by(user_id: id)
     end
   end
 

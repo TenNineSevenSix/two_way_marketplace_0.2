@@ -4,10 +4,12 @@
 
   <% connection = relationship_connection(@student_profile.id) %>
 
-    <% if connection == 'pending' %>
-      <h3>Connection requested...</h3>
+    <% if connection == 'pending_student_approval' %>
+      <h3>You have requested to connect with <%= @student_profile.first_name %></h3>
     <% elsif connection == 'connected' %>
       <h3>You are connected with <%= @student_profile.first_name %></h3>
+    <% elsif connection == 'pending_tutor_approval' %>
+      <h3><%= @student_profile.first_name %> has requested to connect with you!</h3>
     <% end %>
 
     <% if @student_profile.profile_image.file.nil? %>
@@ -39,10 +41,9 @@
 
     <% unless @student_profile.user_id == current_user.id %>
       <span><%= link_to 'Message', new_message_path(receiver: @student_profile.user_id), class: 'message' %></span>
-    <% end %>
-
-    <% if connection == 'unconnected' %>
-      <span><%= link_to 'Request connection', new_relationship_path(id: @student_profile.id), class: 'message' %></span>
+      <% if connection == 'unconnected' %>
+        <span><%= link_to 'Request connection', new_relationship_path(id: @student_profile.id), class: 'message' %></span>
+      <% end %>
     <% end %>
 
     <dl class="map">

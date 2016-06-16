@@ -1,3 +1,33 @@
 <main>
-
+  <div class="users">
+    <div class="profile">
+      <dl class="connections-index">
+        <dt>
+          Your connections
+        </dt>
+        <dd>
+        <% @my_connections.each do |profile| %>
+          <% if relationship_connection(profile.id) == 'connected' %>
+            <%= image_tag profile.profile_image %>
+            <h4><%= link_to "#{profile.first_name} #{profile.last_name}", profile %></h4>
+            <p><%= profile.categories %></p>
+          <% end %>
+        </dd>
+        <% end %>
+        <dt>
+          Pending <%= current_user.has_role?(:tutor) ? 'student' : 'tutor' %> approval
+        </dt>
+        <dd>
+        <% @my_connections.each do |profile| %>
+          <% if relationship_connection(profile.id) == 'pending' %>
+            <%= image_tag profile.profile_image %>
+            <h4><%= link_to "#{profile.first_name} #{profile.last_name}", profile %></h4>
+            <p><%= profile.categories %></p>
+          <% end %>
+        <% end %>
+        </dd>
+      </dl>
+      <%= @profiles_for_approval %>
+    </div>
+  </div>
 </main>

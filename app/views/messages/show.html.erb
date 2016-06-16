@@ -1,10 +1,10 @@
 <main>
 <p id="notice"><%= notice %></p>
 <div class="profile" id="message">
-
+<% profile = self.get_profile(@message.sender_id) %>
 <dl>
   <dt>Sender</dt>
-  <dd><%= self.get_profile_name(@message.sender_id) %></dd>
+  <dd><%= link_to "#{profile.first_name} #{profile.last_name}", profile %></dd>
   <dt>Subject</dt>
   <dd><%= @message.subject %></dd>
   <dt>Message</dt>

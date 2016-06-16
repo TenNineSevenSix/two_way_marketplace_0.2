@@ -41,7 +41,7 @@ nav {
 
 nav ul {
   float: right;
-  margin-right: 60px;
+  margin-right: 2vw;
   display: inline-block;
   font-size: 1.2em;
   font-weight: 100;
@@ -49,8 +49,8 @@ nav ul {
 }
 nav li {
   display: inline;
-  margin: 0 20px;
-  padding: 0 20px 8px 20px;
+  margin: 0 1vw;
+  padding: 0 1vw 8px 1vw;
   border-bottom: 2px solid #ffffff;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
@@ -368,6 +368,32 @@ main {
         border-radius: 50%;
       }
     }
+    .connections-index {
+      dt { margin-top: 2vw; }
+      dd { padding: 1vw 0 0.5vw 0; }
+      h4 {
+        font-weight: 200;
+        text-align: left;
+        vertical-align: top;
+        display: block;
+        padding-top: 0;
+      }
+      p {
+        text-align: left;
+        vertical-align: top;
+        display: block;
+        padding-top: 1vw;
+        margin-bottom: 3vw;
+      }
+      img {
+        max-height: 76px;
+        max-width: 76px;
+        height: auto;
+        width: 76px;
+        float: left;
+        padding-right: 2vw;
+      }
+    }
     .map {
       dt {
         padding: 2.5vw 0 1vw 0;
@@ -402,7 +428,6 @@ footer p {
 @media (max-width: 900px) {
   nav {
     ul {
-      margin-right: 8vw;
       font-size: 1em;
     }
     li {

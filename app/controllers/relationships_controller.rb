@@ -11,17 +11,7 @@ class RelationshipsController < ApplicationController
   end
 
   def index
-    if current_user.has_role? :tutor
-      current_profile = TutorProfile.find(params[:id])
-      relationships = current_profile.relationships
-      student_profile_ids = []
-      relationships.each do |relationship|
-        student_profile_ids.push(relationship.student_profile_id)
-      end
-      @profiles = StudentProfile.where()
-    else
-      current_profile = StudentProfile.find(params[:id])
-    end
+    @my_connections = get_user_relationships
   end
 
   private
@@ -36,6 +26,24 @@ class RelationshipsController < ApplicationController
         @profile = StudentProfile.find_by(user_id: current_user.id)
         @relationship = @profile.relationships.create(tutor_profile: requested_profile)
         @relationship.save
+      end
+    end
+
+    def get_user_relationships
+      if current_user.has_role? :tutor
+        current_profile = TutorProfile.find_by(user_id: current_user.id)
+        student_profile_ids = []
+        current_profile.relationships.each do |relationship|
+          student_profile_ids.push(relationship.student_profile_id)
+        end
+        profiles = StudentProfile.where(id: student_profile_ids)
+      else
+        current_profile = StudentProfile.find_by(user_id: current_user.id)
+        tutor_profile_ids = []
+        current_profile.relationships.each do |relationship|
+          tutor_profile_ids.push(relationship.tutor_profile_id)
+        end
+        profiles = TutorProfile.where(id: tutor_profile_ids)
       end
     end
 end
