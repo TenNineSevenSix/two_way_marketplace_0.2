@@ -43,6 +43,8 @@
       <span><%= link_to 'Message', new_message_path(receiver: @student_profile.user_id), class: 'message' %></span>
       <% if connection == 'unconnected' %>
         <span><%= link_to 'Request connection', new_relationship_path(id: @student_profile.id), class: 'message' %></span>
+        <% elsif connection =='pending_tutor_approval' %>
+          <span><%= link_to 'Approve connection', new_relationship_path(id: @student_profile.id), class: 'message' %></span>
       <% end %>
     <% end %>
 

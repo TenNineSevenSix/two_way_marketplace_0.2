@@ -2,7 +2,6 @@
   <p id="notice"><%= notice %></p>
   <div class="profile">
     <% connection = relationship_connection(@tutor_profile.id) %>
-
     <% if connection == 'pending_tutor_approval' %>
       <h3>You have requested to connect with <%= @tutor_profile.first_name %></h3>
     <% elsif connection == 'connected' %>

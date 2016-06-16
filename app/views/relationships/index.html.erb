@@ -12,22 +12,15 @@
             <h4><%= link_to "#{profile.first_name} #{profile.last_name}", profile %></h4>
             <p><%= profile.categories %></p>
           <% end %>
-        </dd>
         <% end %>
+        </dd>
         <dt>
-          Pending <%= current_user.has_role?(:tutor) ? 'student' : 'tutor' %> approval
+          Waiting for your approval
         </dt>
         <dd>
-        <% @my_connections.each do |profile| %>
-          <% if relationship_connection(profile.id) == 'pending' %>
-            <%= image_tag profile.profile_image %>
-            <h4><%= link_to "#{profile.first_name} #{profile.last_name}", profile %></h4>
-            <p><%= profile.categories %></p>
-          <% end %>
-        <% end %>
+          <%= render 'relationships/pending_approval' %>
         </dd>
       </dl>
-      <%= @profiles_for_approval %>
     </div>
   </div>
 </main>

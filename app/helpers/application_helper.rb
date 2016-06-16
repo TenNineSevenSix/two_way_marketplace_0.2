@@ -33,9 +33,6 @@ module ApplicationHelper
         end
       end
     end
-
-
-
     return 'unconnected'
   end
 end

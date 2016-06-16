@@ -1,4 +1,5 @@
 class RelationshipsController < ApplicationController
+include ApplicationHelper
 
   def new
     if current_user.has_role? :tutor
@@ -19,12 +20,21 @@ class RelationshipsController < ApplicationController
     def relationship_request(requested_profile)
       if current_user.has_role? :tutor
         @profile = TutorProfile.find_by(user_id: current_user.id)
-        @relationship = @profile.relationships.create(student_profile: requested_profile)
+        if relationship_connection(requested_profile.id) == 'unconnected'
+          @relationship = @profile.relationships.create(student_profile: requested_profile)
+        else
+          @relationship = Relationship.find_by(student_profile_id: requested_profile.id, tutor_profile_id: @profile.id)
+        end
         @relationship.tutor_approved = true
         @relationship.save
       else
         @profile = StudentProfile.find_by(user_id: current_user.id)
-        @relationship = @profile.relationships.create(tutor_profile: requested_profile)
+        if relationship_connection(requested_profile.id) == 'unconnected'
+          @relationship = @profile.relationships.create(tutor_profile: requested_profile)
+        else
+          @relationship = Relationship.find_by(tutor_profile_id: requested_profile.id, student_profile_id: @profile.id)
+        end
+        @relationship.student_approved = true
         @relationship.save
       end
     end

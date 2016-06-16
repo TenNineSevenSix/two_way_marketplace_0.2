@@ -1,0 +1,19 @@
+<% if current_user.has_role? :tutor %>
+  <% @my_connections.each do |profile| %>
+    <% if relationship_connection(profile.id) == 'pending_tutor_approval' %>
+      <%= image_tag profile.profile_image %>
+      <h4><%= link_to "#{profile.first_name} #{profile.last_name}", profile %></h4>
+      <p><%= profile.categories %></p>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% if current_user.has_role? :student %>
+  <% @my_connections.each do |profile| %>
+    <% if relationship_connection(profile.id) == 'pending_student_approval' %>
+      <%= image_tag profile.profile_image %>
+      <h4><%= link_to "#{profile.first_name} #{profile.last_name}", profile %></h4>
+      <p><%= profile.categories %></p>
+    <% end %>
+  <% end %>
+<% end %>
