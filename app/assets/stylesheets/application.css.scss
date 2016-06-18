@@ -286,6 +286,18 @@ main {
   .trash:hover {
     background-position: right;
   }
+  .assignment-table {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 10vw;
+  }
+  .assignment-table h2 {
+    font-size: 1.8em;
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    text-align: left;
+    margin: 4vw 0 3vw 10%;
+  }
 }
 
 .profile {
@@ -427,9 +439,6 @@ main {
       font-family: "Exo";
       padding: 6px;
       margin: 0 0 3vw 0;
-    }
-    .message {
-
     }
   }
 }

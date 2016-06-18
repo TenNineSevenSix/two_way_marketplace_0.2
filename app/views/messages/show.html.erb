@@ -1,15 +1,23 @@
 <main>
-<p id="notice"><%= notice %></p>
-<div class="profile" id="message">
-<% profile = self.get_profile(@message.sender_id) %>
-<dl>
-  <dt>Sender</dt>
-  <dd><%= link_to "#{profile.first_name} #{profile.last_name}", profile %></dd>
-  <dt>Subject</dt>
-  <dd><%= @message.subject %></dd>
-  <dt>Message</dt>
-  <dd><%= @message.message %></dd>
-</dl>
-<%= render 'read', message: @message %>
-</div>
+  <p id="notice"><%= notice %></p>
+  <div class="profile" id="message">
+    <dl>
+      <% if @message.sender_id == current_user.id %>
+        <dt>Receiver</dt>
+        <% profile = get_profile(@message.receiver_id) %>
+      <% else %>
+        <dt>Sender</dt>
+        <% profile = get_profile(@message.sender_id) %>
+      <% end %>
+
+      <dd><%= link_to "#{profile.first_name} #{profile.last_name}", profile %></dd>
+      <dt>Subject</dt>
+      <dd><%= @message.subject %></dd>
+      <dt>Message</dt>
+      <dd><%= @message.message %></dd>
+    </dl>
+    <% unless @message.sender_id == current_user.id || @message.read %>
+      <%= render 'read', message: @message %>
+    <% end %>
+  </div>
 </main>

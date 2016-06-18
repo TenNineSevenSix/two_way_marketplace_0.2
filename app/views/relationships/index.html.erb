@@ -18,7 +18,7 @@
             <p><%= profile.categories %></p>
             </div>
             <div class="button">
-            <%= link_to "Homework", { controller: 'homeworks', action: 'index', student_profile_id: profile.id }, class: 'message' %>
+            <%= link_to "Homework", { controller: 'homeworks', action: 'index', profile_id: profile.id }, class: 'message' %>
             </div>
           <% end %>
         <% end %>

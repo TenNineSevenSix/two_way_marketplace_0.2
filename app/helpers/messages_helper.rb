@@ -17,6 +17,7 @@ module MessagesHelper
     end
   end
 
+
   def unread_messages(id)
     @messages = Message.where(receiver_id: id, read: nil).or(Message.where(receiver_id: id, read: false))
   end

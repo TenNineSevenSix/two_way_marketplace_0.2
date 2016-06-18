@@ -1,23 +1,49 @@
 <main>
-  <div class="profile">
-    <div id="set-homework">
-      <h3>Set <%= @student_profile.first_name %> a homework task</h3>
-      <%= simple_form_for(@homework) do |f| %>
-        <%= f.error_notification %>
+  <% if current_user.has_role? :tutor %>
+    <div class="profile">
+      <div id="set-homework">
+        <h3>Set <%= @profile.first_name %> a homework task</h3>
+        <%= simple_form_for(@homework) do |f| %>
+          <%= f.error_notification %>
 
-        <div class="form-inputs">
-          <%= f.input :student_profile_id, as: :hidden, input_html: { value: params[:student_profile_id] } %>
+          <div class="form-inputs">
+            <%= f.input :student_profile_id, as: :hidden, input_html: { value: @profile.id } %>
 
-          <%= f.input_field :question, as: :text, input_html: { class: "profile-inputs" } %>
-        </div>
+            <%= f.input_field :question, as: :text, input_html: { class: "profile-inputs" } %>
+          </div>
 
-        <div class="form-actions">
-          <%= f.button :submit, class: 'message' %>
-        </div>
-      <% end %>
+          <div class="form-actions">
+            <%= f.button :submit, class: 'message' %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <% @homeworks.each do |homework| %>
-    <%= homework.question %>
   <% end %>
+  <div class="assignment-table">
+    <h2><%= current_user.has_role?(:tutor) ? 'Assignments for ' : 'Assignments set by ' %><%= @profile.first_name %></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Created</th>
+          <th>Question</th>
+          <th>Answer</th>
+          <th>Completed</th>
+          <th>Result</th>
+          <th>Tutor Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @homeworks.each do |homework| %>
+        <tr>
+          <td><%= homework.created_at %></td>
+          <td><%= link_to homework.question, homework %></td>
+          <td><%= homework.answer %></td>
+          <td><%= homework.completed %></td>
+          <td><%= homework.result %></td>
+          <td><%= homework.tutor_comments %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </main>

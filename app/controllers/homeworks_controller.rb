@@ -3,13 +3,21 @@ class HomeworksController < ApplicationController
   def index
     if current_user.has_role? :tutor
       tutor_profile = TutorProfile.find_by(user_id: current_user.id)
-      @homeworks = Homework.where(student_profile_id: params[:student_profile_id], tutor_profile_id: tutor_profile.id)
+      @homeworks = Homework.where(student_profile_id: params[:profile_id], tutor_profile_id: tutor_profile.id)
       @homework = Homework.new
-      @student_profile = StudentProfile.find_by(id: params[:student_profile_id])
+      @profile = StudentProfile.find_by(id: params[:profile_id])
+    else
+      student_profile = StudentProfile.find_by(user_id: current_user.id)
+      @homeworks = Homework.where(tutor_profile_id: params[:profile_id], student_profile_id: student_profile.id)
+      @profile = TutorProfile.find_by(id: params[:profile_id])
     end
   end
 
   def new
+  end
+
+  def show
+    @homework = Homework.find(params[:id])
   end
 
   def create
@@ -17,7 +25,7 @@ class HomeworksController < ApplicationController
     @homework = Homework.new(homework_params)
     @homework.tutor_profile_id = tutor_profile.id
     @homework.save
-    redirect_to controller: 'homeworks', action: 'index', student_profile_id: @homework.student_profile_id
+    redirect_to({ controller: 'homeworks', action: 'index', profile_id: @homework.student_profile_id })
   end
 
   private
