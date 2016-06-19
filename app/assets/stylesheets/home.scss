@@ -77,3 +77,59 @@ input:checked + .tutor_view {
   content: "";
   background: rgba(0, 0, 0, .2);
 }
+article {
+  .pricing-plans {
+    display: block;
+    width: 90vw;
+    margin: 10vw auto;
+    border-radius: 10px;
+    clear: both;
+    overflow: hidden;
+    h2 {
+      padding: 2vw 0;
+      text-align: center;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    h3 {
+      text-align: center;
+      font-size: 1.1em;
+      font-weight: 200;
+    }
+    ul {
+      margin: 5vw 0 5vw 9vw;
+    }
+    li {
+      margin: 1vw 0;
+      font-size: 1.2em;
+    }
+    .plan-stripe {
+      margin-top: 5vw;
+      text-align: center;
+    }
+    .free-plan {
+      background: rgba(111, 85, 176, 0.5);
+      border-radius: 10px;
+      float: left;
+      width: 43vw;
+      margin: 0 2vw 0 0;
+      height: 500px;
+      box-sizing: border-box;
+      h2 {
+        background: rgba(111, 85, 176, 0.8);
+      }
+    }
+    .premium-plan {
+      background: rgba(58, 151, 68, 0.5);
+      border-radius: 10px;
+      float: left;
+      height: 500px;
+      width: 43vw;
+      margin: 0 0 2vw 0;
+      box-sizing: border-box;
+      h2 {
+        background: rgba(58, 151, 68, 0.8);
+      }
+    }
+  }
+}

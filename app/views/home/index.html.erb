@@ -23,8 +23,62 @@
 </header>
 <article>
   <h2>About find my tutor</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Find my tutor is completely free for students. Simply sign up and choose the student plan and you are away. Search for tutors in your local area or who teach the subjects you want to learn, and you're off and learning. Message tutors to find out more about them, and connect with tutors who suite your needs.</p>
+  <p>Find my student is a great way for tutors to connect with students. Tutors sign up to the basic plan which gives you unlimited messaging and searching for students. With the basic plan you can connect with up to three students and set up to fifty homework tasks. If you need more, you can sign up to our premium plan which gives you the capacity to have unlimited students and set an unlimited number of homework tasks. Track your students performance and connect with your students or their parents to help them achieve the skills they need to succeed.</p>
+  <div class="pricing-plans">
+    <div class="free-plan">
+      <h2>Basic Plan</h2>
+      <ul>
+        <li>Free listing</li>
+        <li>Unlimited messaging</li>
+        <li>Up to three students</li>
+        <li>Up to fifty homework tasks</li>
+      </ul>
+      <%= form_tag charges_path do %>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+          <label class="amount">
+            <h3>Amount: $3.99/month</h3>
+          </label>
+          <div class="plan-stripe">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="A month's subscription"
+                data-amount="399"
+                data-locale="auto"></script>
+          </div>
+      <% end %>
+    </div>
+    <div class="premium-plan">
+      <h2>Premium Plan</h2>
+      <ul>
+        <li>Free listing</li>
+        <li>Unlimited messaging</li>
+        <li>Unlimited students</li>
+        <li>Unilimited homework tasks</li>
+      </ul>
+      <%= form_tag charges_path do %>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+          <label class="amount">
+            <h3>Amount: $14.99/month</h3>
+          </label>
+          <div class="plan-stripe">
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="A month's subscription"
+                data-amount="1499"
+                data-locale="auto"></script>
+          </div>
+      <% end %>
+    </div>
+  </div>
   <div class="headshots">
   <ul>
     <li>
