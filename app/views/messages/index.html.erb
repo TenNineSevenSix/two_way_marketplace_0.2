@@ -16,7 +16,7 @@
   <tbody>
     <% @messages.each do |message| %>
       <% if !message.read %>
-    <tr class="unread_messages" style="background:  rgba(176, 136, 171, 0.2) !important">
+    <tr data-href="<%= message_path(message) %>", class="unread_messages" style="background:  rgba(176, 136, 171, 0.2) !important">
       <td><%= link_to self.get_profile_name(message.sender_id), self.get_profile(message.sender_id) %></td>
       <td><%= link_to message.subject, message %></td>
       <td><%= message.created_at.strftime('%a %d %b %Y') %></td>
@@ -36,7 +36,7 @@
     </tr>
     <% @messages.each do |message| %>
       <% if message.read %>
-    <tr>
+    <tr data-href="<%= message_path(message) %>">
       <td><%= link_to self.get_profile_name(message.sender_id), self.get_profile(message.sender_id) %></td>
       <td><%= link_to message.subject, message %></td>
       <td><%= message.created_at.strftime('%a %d %b %Y') %></td>

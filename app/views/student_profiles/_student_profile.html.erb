@@ -1,4 +1,4 @@
-<tr>
+<tr data-href="<%= student_profile_path(student_profile) %>">
   <td><%= full_name(student_profile) %></td>
   <% if current_user.has_role? :admin %>
     <td><%= student_profile.dob %></td>

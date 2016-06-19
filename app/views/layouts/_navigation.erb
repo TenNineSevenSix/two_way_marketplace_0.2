@@ -5,9 +5,9 @@
       <ul>
       <% if current_user %>
         <li class="<%= active_class(relationships_path) %>">
-          <%= link_to "connections", relationships_path %>
+          <%= link_to current_user.has_role?(:tutor) ? "my students" : "my tutors", relationships_path %>
         </li>
-        
+
         <% if unread_messages(current_user.id).nil? || unread_messages(current_user.id).empty? %>
           <li class="<%= active_class(messages_path) %>">
             <%= link_to "messages", messages_path %>
@@ -20,11 +20,11 @@
 
         <% if current_user.has_role?(:tutor) %>
           <li class="<%= active_class(student_profiles_path) %>">
-          <%= link_to "students", student_profiles_path %>
+          <%= link_to "search", student_profiles_path %>
           </li>
         <% elsif current_user.has_role?(:student) %>
           <li class="<%= active_class(tutor_profiles_path) %>">
-            <%= link_to "tutors", tutor_profiles_path %>
+            <%= link_to "search", tutor_profiles_path %>
           </li>
         <% end %>
 

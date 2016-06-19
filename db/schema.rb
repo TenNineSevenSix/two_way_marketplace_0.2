@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616105441) do
+ActiveRecord::Schema.define(version: 20160619043812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20160616105441) do
     t.integer  "student_profile_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.date     "due_date"
+    t.date     "completed_date"
     t.index ["student_profile_id"], name: "index_homeworks_on_student_profile_id", using: :btree
     t.index ["tutor_profile_id"], name: "index_homeworks_on_tutor_profile_id", using: :btree
   end

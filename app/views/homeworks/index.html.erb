@@ -1,20 +1,25 @@
 <main>
   <% if current_user.has_role? :tutor %>
     <div class="profile">
-      <div id="set-homework">
-        <h3>Set <%= @profile.first_name %> a homework task</h3>
+      <div class="set-homework">
         <%= simple_form_for(@homework) do |f| %>
           <%= f.error_notification %>
-
-          <div class="form-inputs">
+        <dl>
+          <dt>
+            <h3>Set <%= @profile.first_name %> a homework task</h3>
+          </dt>
             <%= f.input :student_profile_id, as: :hidden, input_html: { value: @profile.id } %>
-
+          <dd>
             <%= f.input_field :question, as: :text, input_html: { class: "profile-inputs" } %>
-          </div>
-
-          <div class="form-actions">
+          </dd>
+          <dt>
+            <h3>Homework due date:</h3>
+          </dt>
+          <dd>
+            <%= f.date_field :due_date %>
+          </dd>
+        </dl>
             <%= f.button :submit, class: 'message' %>
-          </div>
         <% end %>
       </div>
     </div>
@@ -25,22 +30,20 @@
       <thead>
         <tr>
           <th>Created</th>
-          <th>Question</th>
-          <th>Answer</th>
+          <th>Due</th>
+          <th>Finished</th>
           <th>Completed</th>
           <th>Result</th>
-          <th>Tutor Comments</th>
         </tr>
       </thead>
       <tbody>
         <% @homeworks.each do |homework| %>
-        <tr>
-          <td><%= homework.created_at %></td>
-          <td><%= link_to homework.question, homework %></td>
-          <td><%= homework.answer %></td>
-          <td><%= homework.completed %></td>
+        <tr data-href="<%= homework_path(homework) %>">
+          <td><%= homework.created_at.strftime('%a %d %b %Y') %></td>
+          <td><%= homework.due_date.strftime('%a %d %b %Y') %></td>
+          <td><%= homework.completed_date.strftime('%a %d %b %Y') unless homework.completed_date.nil? %></td>
+          <td><%= homework.completed ? "Yes" : "No" %></td>
           <td><%= homework.result %></td>
-          <td><%= homework.tutor_comments %></td>
         </tr>
         <% end %>
       </tbody>

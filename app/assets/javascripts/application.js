@@ -30,3 +30,7 @@ $(window).on('scroll',function(){
     }
 
 });
+
+$(document).on("click", "tr", function() {
+  window.location = $(this).data("href");
+});

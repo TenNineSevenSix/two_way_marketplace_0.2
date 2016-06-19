@@ -1,0 +1,20 @@
+<%= simple_form_for(@homework) do |f| %>
+  <%= f.error_notification %>
+    <h2>Assess you student</h2>
+  <div>
+    <dl>
+      <dt><h3>Question:</h3></dt>
+      <dd><h3><%= @homework.question %></h3></dd>
+      <dt><h3>Answer:</h3></dt>
+      <dd><h3><%= @homework.answer %></h3></dd>
+      <dt><h3>Your comments:</h3></dt>
+      <dd><%= f.input_field :tutor_comments, as: :text, input_html: { class: "homework-inputs" } %></dd>
+      <dt><h3>Mark</h3></dt>
+      <dd><%= f.input_field :result %></dd>
+    </dl>
+  </div>
+
+  <div>
+    <%= f.button :submit, class: 'message' %>
+  </div>
+<% end %>

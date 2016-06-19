@@ -23,6 +23,9 @@ a:hover {
 a:hover + li {
   border-bottom: 2px solid rgba(174, 42, 176, 0.8);
 }
+tr:hover {
+  cursor: pointer;
+}
 
 nav {
   transition: all 0.5s ease;
@@ -431,14 +434,81 @@ main {
     width: 100%;
     display: inline-block;
   }
-  #set-homework {
+  .set-homework {
     textarea#homework_question {
       width: 97%;
       height: 15vw;
       font-size: 1em;
       font-family: "Exo";
       padding: 6px;
+    }
+    input#homework_due_date {
+      padding: 3px;
+      font-family: "Exo";
+      font-size: 0.9em;
+      display: inline-block;;
+    }
+    .message {
+      margin: 2vw 0 2vw 1vw;
+    }
+    h3 {
+      display: flex;
+      text-align: left;
+      margin: 0;
+      font-size: 1.1em;
+    }
+  }
+  .homework-update {
+    h2 {
+      font-size: 1.4em;
+      margin-bottom: 2vw;
+      font-weight: 200;
+    }
+    h3 {
+      display: flex;
+      text-align: left;
+      margin: 0;
+      font-size: 1.1em;
+    }
+    textarea#homework_answer.text.optional.homework-inputs {
+      width: 97%;
+      height: 15vw;
+      font-size: 1em;
+      font-family: "Exo";
+      font-weight: 100;
+      padding: 6px;
       margin: 0 0 3vw 0;
+    }
+    textarea#homework_tutor_comments.text.optional {
+      width: 98%;
+      height: 26vw;
+      font-family: inherit;
+      font-size: inherit;
+    }
+    input#homework_result.numeric.integer.optional {
+      height: 4vw;
+      font-size: inherit;
+      padding: 1vw;
+    }
+    label.text.optional {
+      font-weight: 100;
+    }
+
+    input[type="checkbox"] {
+    display: inline;
+    }
+    .message {
+      margin: 2vw 0 2vw 1vw;
+    }
+    .homework-results {
+      h2 {
+        margin: 6vw 0 2vw 0;
+      }
+      h3 {
+        display: flex;
+        text-align: left;
+        margin: 0;
+      }
     }
   }
 }
