@@ -40,7 +40,7 @@
         <% @homeworks.each do |homework| %>
         <tr data-href="<%= homework_path(homework) %>">
           <td><%= homework.created_at.strftime('%a %d %b %Y') %></td>
-          <td><%= homework.due_date.strftime('%a %d %b %Y') %></td>
+          <td><%= homework.due_date.strftime('%a %d %b %Y') unless homework.due_date.nil? %></td>
           <td><%= homework.completed_date.strftime('%a %d %b %Y') unless homework.completed_date.nil? %></td>
           <td><%= homework.completed ? "Yes" : "No" %></td>
           <td><%= homework.result %></td>

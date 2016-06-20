@@ -1,18 +1,81 @@
-<%= form_tag charges_path do %>
-  <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
+<main>
+    <div class="pricing-plans">
+      <div class="free-plan">
+        <h2>Free Plan</h2>
+        <ul>
+          <li>STUDENTS</li>
+          <li>Free listing</li>
+          <li>Unlimited messaging</li>
+          <li>Unlimited tutors</li>
+          <li>Unlimited homework tasks</li>
+        </ul>
+        <%= form_tag charges_path do %>
+            <% if flash[:error].present? %>
+              <div id="error_explanation">
+                <p><%= flash[:error] %></p>
+              </div>
+            <% end %>
+            <label class="amount">
+              <h3>Amount: FREE</h3>
+            </label>
+            <div class="plan-stripe">
+              <%= link_to 'Student signup', new_user_registration_path, class: 'stripe-button-el' %>
+            </div>
+        <% end %>
       </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: $5.00</span>
-    </label>
-  </article>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"
-          data-locale="auto"></script>
-<% end %>
+      <div class="basic-plan">
+        <h2>Basic Plan</h2>
+        <ul>
+          <li>TUTORS</li>
+          <li>Free listing</li>
+          <li>Unlimited messaging</li>
+          <li>Up to three students</li>
+          <li>Up to fifty homework tasks</li>
+        </ul>
+        <%= form_tag charges_path do %>
+            <% if flash[:error].present? %>
+              <div id="error_explanation">
+                <p><%= flash[:error] %></p>
+              </div>
+            <% end %>
+            <label class="amount">
+              <h3>Amount: $3.99/month</h3>
+            </label>
+            <div class="plan-stripe">
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-description="A month's subscription"
+                  data-amount="399"
+                  data-locale="auto"></script>
+            </div>
+        <% end %>
+      </div>
+      <div class="premium-plan">
+        <h2>Premium Plan</h2>
+        <ul>
+          <li>TUTORS</li>
+          <li>Free listing</li>
+          <li>Unlimited messaging</li>
+          <li>Unlimited students</li>
+          <li>Unilimited homework tasks</li>
+        </ul>
+        <%= form_tag charges_path do %>
+            <% if flash[:error].present? %>
+              <div id="error_explanation">
+                <p><%= flash[:error] %></p>
+              </div>
+            <% end %>
+            <label class="amount">
+              <h3>Amount: $14.99/month</h3>
+            </label>
+            <div class="plan-stripe">
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-description="A month's subscription"
+                  data-amount="1499"
+                  data-locale="auto"></script>
+            </div>
+        <% end %>
+      </div>
+    </div>
+</main>

@@ -43,8 +43,8 @@
         </li>
 
       <% else %>
-        <li class="<%= active_class(new_user_session_path) %>">
-          <%= link_to "login/sign up", new_user_session_path%>
+        <li class="<%= active_class(new_user_session_path) %>" style="font-size: 2em;">
+          <%= link_to "login", new_user_session_path %>
         </li>
       <% end %>
     </ul>

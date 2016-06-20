@@ -15,9 +15,12 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => 'Rails Stripe customer',
+      :description => 'FindMyTutor Stripe customer',
       :currency    => 'usd'
     )
+
+    redirect_to new_user_registration_path(role: :tutor, email: params[:stripeEmail])
+
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
