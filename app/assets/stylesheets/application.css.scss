@@ -710,6 +710,23 @@ footer p {
       }
     }
   }
+  .pricing-plans {
+    .free-plan, .basic-plan, .premium-plan {
+      min-height: 60vh;
+    }
+    h2 {
+      font-size: 1.1em;
+    }
+    h3 {
+      font-size: 1em;
+    }
+    ul {
+      margin: 5vw 0 5vw 0;
+    }
+    li {
+      font-size: 0.9em;
+    }
+  }
 }
 @media (max-width: 768px) {
   header h1 {
