@@ -42,3 +42,10 @@ Homework:
 * Students must then answer the question, and the homework submission day is recorded,
 * Tutors can see when their student(s) have completed their homework and provide a mark and tutor comments.
 * Students can then view the mark and comments for their answered homework.
+
+## Project plan
+
+* Add supervisor/parent role and user type to the app that allows students to have their parents monitor their progress.
+* Add Google/Facebook login api
+* Allow the homework section to be searchable and ordered according to whether completed and/or the due-date. This will be similar to how the messages was implemented.
+* Add a community forum section.
