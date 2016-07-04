@@ -9,6 +9,23 @@ Find my tutor is a web application designed to enable and enhance the relationsh
 Problem: How do students and tutors connect and track their process.
 Solution: Provide an easy and mobile solution to connect tutors and students. Allow tutors to set and mark homework, while allowing students (and their parents if applicable) to track their homework and their results.
 
+### Usage
+
+Sign in as a student
+* username: user2@email.com
+* password: 12345678
+Sign in as a tutor
+* username: user10@email.com
+* password: 12345678
+
+Test payment system
+* Payments are test only
+* Use credit card number: 4242 4242 4242 4242
+* valid expiry date
+* valid email address
+
+## User flow
+
 Payments:
 * On signup users must choose between three options.
 * Students signup for free, and can make full use of the application.
