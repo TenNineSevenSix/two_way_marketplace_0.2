@@ -1,11 +1,6 @@
 # README
 
-One page summary of your application including problem definition, solution.
-A workflow diagram of the user journey/s.
-Wireframes for at least 5 screens.
-User stories for the whole application.
-Entity Relationship Diagram (ERD).
-Project plan and estimation.
+https://cryptic-falls-33174.herokuapp.com
 
 ## One Page Summary
 
